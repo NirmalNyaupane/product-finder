@@ -10,7 +10,7 @@ Clone the project
 Go to the project directory
 
 ```bash
-  cd lancemeup-assignment
+  cd lancemeup-fronted-assignment
 ```
 
 Install dependencies
