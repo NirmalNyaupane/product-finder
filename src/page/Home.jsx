@@ -4,7 +4,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import { useState } from "react";
 
 const Home = () => {
-  const { state, dispatch, isPopUp, changePopUp } = AccessContent();
+  const {state} = AccessContent();
   const priceRange = [20, 50, 100, 200, 500, 700, 1000, 5000];
   const [filter, changeFilter] = useState({
     price: 0,
@@ -85,7 +85,7 @@ const Home = () => {
       <div className="filter">
         <h2 className="text-xl font-bold mb-2">Filters</h2>
         <hr />
-        <div className="flex gap-3 my-3">
+        <div className="flex-col md:flex-row flex gap-3 my-3">
           <div className="price">
             <label htmlFor="price">Price</label>
             <br />
@@ -130,7 +130,7 @@ const Home = () => {
             </select>
           </div>
 
-          <div className="mt-auto ml-auto">
+          <div className="mt-auto md:ml-auto">
             <button
               className="bg-blue-700 text-white px-2 py-1 rounded-md shadow-md"
               onClick={clearFilter}
@@ -140,7 +140,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="container grid grid-cols-3 my-6 gap-4">
+      <div className="container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 my-6 gap-4">
         {transformProduct()?.map((element) => {
           return <SingleCart key={element.id} data={element} />;
         })}

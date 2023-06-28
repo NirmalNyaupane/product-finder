@@ -8,7 +8,7 @@ const SearchBar = () => {
     <>
     {isPopUp&&<PopUpSearch/>}
       <div
-        className="search-bar flex place-items-center bg-gray-100 w-fit p-1 rounded-md"
+        className="search-bar hidden md:flex place-items-center bg-gray-100 w-fit p-1 rounded-md"
       >
         <label htmlFor="search" className="text-2xl mx-3 text-gray-400">
           <AiOutlineSearch />
@@ -26,6 +26,12 @@ const SearchBar = () => {
         >
           <kbd className="text-gray-500">CTRL K</kbd>
         </label>
+      </div>
+
+      <div className="text-2xl md:hidden text-gray-600"
+      onClick={()=>changePopUp(true)}
+      >
+        <AiOutlineSearch/>
       </div>
     </>
   );

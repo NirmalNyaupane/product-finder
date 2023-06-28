@@ -77,13 +77,13 @@ const PopUpSearch = () => {
 
   return (
     <div
-      className="popup container mx-auto p-6 h-[100vh] w-[100vw] flex justify-center 
-      items-center absolute top-0 left-0 bg-blur-background"
+      className="popup h-[100vh] w-[100vw] flex justify-center 
+      items-center absolute top-0 left-0 right-0 bottom-0 bg-blur-background"
       onBlur={resetSearch}
     >
-      <div className="bg-white py-5 px-12 w-1/2 rounded-md">
+      <div className="bg-white py-5 px-4 md:px-12 w-[95%] max-w-[1000px] rounded-md">
         <div
-          className="input-field flex flex-row-reverse place-items-center 
+          className="input-field w-[100%] flex flex-row-reverse place-items-center 
         border-2 border-blue-600 rounded-md"
           tabIndex={1}
           onKeyDown={handleKeyDown}
@@ -120,7 +120,7 @@ const PopUpSearch = () => {
           })}
         </div>
 
-        <div className="search-bar-bottom-items flex space-x-2 place-items-center mt-8">
+        <div className="search-bar-bottom-items hidden md:flex space-x-2 place-items-center mt-8">
           <kbd className="border border-gray-300 text-gray-700 py-1 px-3 bg-gray-100 shadow-sm rounded">
             <AiOutlineArrowUp />
           </kbd>

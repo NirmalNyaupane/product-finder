@@ -11,7 +11,7 @@ import Price from "./page/product/Price";
 
 
 function App() {
-  const { changePopUp } = AccessContent();
+  const { changePopUp, isPopUp} = AccessContent();
   useEffect(() => {
     const handleKeyDown = (event) => {
       if (event.ctrlKey && event.key === "k") {
@@ -26,6 +26,17 @@ function App() {
       window.removeEventListener("keydown", handleKeyDown);
     };
   }, []);
+
+  useEffect(()=>{
+    if(isPopUp){
+      document.querySelector("body").style.overflowY="hidden";
+    }
+
+    return () => {
+     document.querySelector("body").style.overflowY="auto"
+    };
+  })
+
   return (
     <Router>
       <Routes>

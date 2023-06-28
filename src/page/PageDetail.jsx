@@ -49,7 +49,7 @@ const PageDetail = () => {
         <h2 className="font-bold text-2xl my-5">{pageState.data.title}</h2>
         <img
           src={pageState.data.image}
-          className="w-[70%] h-[30rem] mx-auto object-cover"
+          className="w-[90%] md:w-[70%] h-[30rem] mx-auto object-cover"
         />
       </div>
 

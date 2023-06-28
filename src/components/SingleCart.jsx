@@ -4,12 +4,13 @@ const SingleCart = (props) => {
   const { category, description, id, image, price, title } = props.data;
   return (
     <div className="border bg-white rounded-md shadow-md">
-      <div className="w-[200px] h-[200px] mx-auto">
+      <div className="w-[200px] h-[200px] mx-auto overflow-hidden">
       <Link to={`/product/${id}`}>
         <img
           src={image}
           alt={title}
-          className="w-[200px] h-[200px] object-cover mx-auto rounded-md"
+          className="w-[200px] h-[200px] object-cover mx-auto 
+          rounded-md hover:scale-125 hover:transition-all hover:delay-100"
         />
       </Link>
       </div>
