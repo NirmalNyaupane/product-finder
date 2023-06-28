@@ -29,14 +29,6 @@ const AppContext = ({ children }) => {
   const [pageState, pageDispatch] = useReducer(PageReducer, pageInitialState);
 
 
-  const contextValue = {
-    isPopUp,
-    changePopUp,
-    state,
-    dispatch,
-    pageState, 
-    pageDispatch
-  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -51,6 +43,14 @@ const AppContext = ({ children }) => {
     fetchData();
   }, []);
 
+  const contextValue = {
+    isPopUp,
+    changePopUp,
+    state,
+    dispatch,
+    pageState, 
+    pageDispatch,
+  };
 
 
   return (

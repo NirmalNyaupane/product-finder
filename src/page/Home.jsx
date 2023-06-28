@@ -2,9 +2,11 @@ import { AccessContent } from "../context/AppContext";
 import SingleCart from "../components/SingleCart";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const {state} = AccessContent();
+  const navigate = useNavigate();
+  const { state} = AccessContent();
   const priceRange = [20, 50, 100, 200, 500, 700, 1000, 5000];
   const [filter, changeFilter] = useState({
     price: 0,
@@ -41,13 +43,13 @@ const Home = () => {
     let transFormArray = state.data;
 
     if (filter.price > 0) {
-      transFormArray = state.data.filter(
+      transFormArray = transFormArray.filter(
         (element) => element.price < filter.price
       );
     }
 
     if (filter.category != "none") {
-      transFormArray = state.data.filter(
+      transFormArray = transFormArray.filter(
         (element) => element.category === filter.category
       );
     }
@@ -74,8 +76,18 @@ const Home = () => {
 
   if (state.isError) {
     return (
-      <div className="w-full h-[100vh] flex place-items-center place-content-center">
-        {state.error}
+      <div className="w-full h-[100vh] flex flex-col place-items-center place-content-center text-3xl">
+        <p>{state.error}</p>
+        <div>
+          <button
+            type="button"
+            className="py-1 px-8 rounded-2xl bg-gray-700 hover:bg-gray-950 my-5 text-white"
+
+            onClick={()=>navigate("/")}
+          >
+          Retry
+          </button>
+        </div>
       </div>
     );
   }
@@ -122,7 +134,11 @@ const Home = () => {
             >
               {catagoryFind().map((element) => {
                 return (
-                  <option key={element} value={element} selected={element == filter.category ? true : false}>
+                  <option
+                    key={element}
+                    value={element}
+                    selected={element == filter.category ? true : false}
+                  >
                     {element[0].toUpperCase() + element.substr(1)}
                   </option>
                 );

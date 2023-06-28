@@ -12,7 +12,7 @@ const Reducer = (state, action) => {
     case ERROR:
       return {
         ...state,
-        isError: false,
+        isError: true,
         error: action.payload,
         isLoading: false,
       };
