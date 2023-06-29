@@ -3,6 +3,7 @@ import {
   AiOutlineArrowUp,
   AiOutlineArrowDown,
   AiOutlineEnter,
+  AiOutlineRight
 } from "react-icons/ai";
 import { AccessContent } from "../context/AppContext";
 import { useState, useRef, useEffect } from "react";
@@ -104,18 +105,31 @@ const PopUpSearch = () => {
         <div className="my-2 max-h-[60vh] overflow-y-auto">
           {state.search.map((element, indx) => {
             return (
-              <div
-                key={element.id}
-                ref={focusedIndex === indx ? resultContainer : null}
-                onMouseDown={() => handleSelect(element.id)}
-                className={`border-2 p-2 my-2 rounded hover:border-blue-500 
+              <>
+                <div
+                  key={element.id}
+                  ref={focusedIndex === indx ? resultContainer : null}
+                  onMouseDown={() => handleSelect(element.id)}
+                  className={`border-2 p-2 my-2 rounded hover:border-blue-500 
               hover:text-blue-500 hover:transition-all hover:delay-75 ${
                 focusedIndex === indx ? "border-blue-500" : "border-gray-200"
               }`}
-              >
-                <span className="text-blue-400 mx-2">#</span>
-                {element.title}
-              </div>
+                >
+                  <div className="flex items-center">
+                    <span className="text-blue-400 mx-2">#</span>
+                    <div>{element.title}</div>
+                    <button
+                      type="button"
+                      className="ml-auto border bg-gray-200 shadow-md py-1 px-3 rounded-md hover:text-black"
+                    >
+                      ${element.price}
+                    </button>
+                  </div>
+                <div className="capitalize ml-5 flex items-center gap-2">
+                  <AiOutlineRight/>{element.category}
+                </div>
+                </div>
+              </>
             );
           })}
         </div>
