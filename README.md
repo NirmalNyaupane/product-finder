@@ -4,13 +4,13 @@
 Clone the project
 
 ```bash
-  git clone https://github.com/NirmalNyaupane/lancemeup-fronted-assignment
+  git clone https://github.com/NirmalNyaupane/product-finder
 ```
 
 Go to the project directory
 
 ```bash
-  cd lancemeup-fronted-assignment
+  cd product-finder
 ```
 
 Install dependencies
